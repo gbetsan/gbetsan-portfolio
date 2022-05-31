@@ -1,12 +1,8 @@
-# gbetsan-portfolio
-
+# Greg Betsan Portfolio Landing
+## Work in Progress
 ## Project setup
 ```
 yarn install
-```
-
-### Compiles and hot-reloads for development
-```
 yarn serve
 ```
 

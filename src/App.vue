@@ -1,30 +1,72 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <transition>
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
+    </transition>
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@Options({
+  components: {
   }
+})
+
+export default class App extends Vue {
 }
+</script>
+
+<style lang="scss">
+
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+ // Import Bulma's core
+  @import "~bulma/sass/utilities/_all";
+  // Set your colors
+  //$primary: #C13584;
+  //$primary-invert: findColorInvert($primary);
+  $secondary: #833AB4;
+  $secondary-invert: findColorInvert($secondary);
+  $navbar-item-img-max-height: 4rem;
+  $hr-background-color: $dark;
+  $hr-height: 1px;
+  $dimensions: 16 24 32 48 64 96 128 256 512 1024;
+
+  // Setup $colors to use as bulma classes (e.g. 'is-secondary')
+  $colors: (
+          "white": ($white, $black),
+          "black": ($black, $white),
+          "light": ($light, $light-invert),
+          "dark": ($dark, $dark-invert),
+          "primary": ($primary, $primary-invert),
+          "info": ($info, $info-invert),
+          "success": ($success, $success-invert),
+          "warning": ($warning, $warning-invert),
+          "danger": ($danger, $danger-invert),
+          "secondary": ($secondary, $secondary-invert)
+  );
+  // Links
+  $link: $primary;
+  $link-invert: $primary-invert;
+  $link-focus-border: $primary;
+  // Import Bulma and Buefy styles
+  @import "~bulma";
+  // @import "~buefy/src/scss/buefy";
+
+  // Typography
+  h1, h2, span, p, b, a {
+    font-family: 'Comfortaa';
+  }
+
+  // Default Styles
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
 </style>
